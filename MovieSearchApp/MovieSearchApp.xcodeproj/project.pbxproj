@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		0F80AF0D28072FFB00552161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF0C28072FFB00552161 /* AppDelegate.swift */; };
 		0F80AF0F28072FFB00552161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF0E28072FFB00552161 /* SceneDelegate.swift */; };
-		0F80AF1128072FFB00552161 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF1028072FFB00552161 /* ViewController.swift */; };
 		0F80AF1628072FFC00552161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F80AF1528072FFC00552161 /* Assets.xcassets */; };
 		0F80AF1928072FFC00552161 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0F80AF1728072FFC00552161 /* LaunchScreen.storyboard */; };
+		0F80AF212807359500552161 /* MovieSearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF202807359500552161 /* MovieSearchListViewController.swift */; };
+		0F80AF2A2807411B00552161 /* MovieSearchTopMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF292807411B00552161 /* MovieSearchTopMenuView.swift */; };
+		0F80AF2C280741B100552161 /* FavoriteCustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF2B280741B100552161 /* FavoriteCustomButton.swift */; };
 		53040AE60A1C8E305FC0540F /* Pods_MovieSearchApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A590F8873C8480CF251DB1B /* Pods_MovieSearchApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -19,10 +21,12 @@
 		0F80AF0928072FFB00552161 /* MovieSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F80AF0C28072FFB00552161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F80AF0E28072FFB00552161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		0F80AF1028072FFB00552161 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0F80AF1528072FFC00552161 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0F80AF1828072FFC00552161 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0F80AF1A28072FFC00552161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0F80AF202807359500552161 /* MovieSearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchListViewController.swift; sourceTree = "<group>"; };
+		0F80AF292807411B00552161 /* MovieSearchTopMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchTopMenuView.swift; sourceTree = "<group>"; };
+		0F80AF2B280741B100552161 /* FavoriteCustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCustomButton.swift; sourceTree = "<group>"; };
 		2AA51DFA6BB4E93B68EC8FCC /* Pods-MovieSearchApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearchApp.debug.xcconfig"; path = "Target Support Files/Pods-MovieSearchApp/Pods-MovieSearchApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8A590F8873C8480CF251DB1B /* Pods_MovieSearchApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieSearchApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D499E278ADBAE3B5FEF677 /* Pods-MovieSearchApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieSearchApp.release.xcconfig"; path = "Target Support Files/Pods-MovieSearchApp/Pods-MovieSearchApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -46,7 +50,6 @@
 				2AA51DFA6BB4E93B68EC8FCC /* Pods-MovieSearchApp.debug.xcconfig */,
 				C2D499E278ADBAE3B5FEF677 /* Pods-MovieSearchApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -73,12 +76,54 @@
 			children = (
 				0F80AF0C28072FFB00552161 /* AppDelegate.swift */,
 				0F80AF0E28072FFB00552161 /* SceneDelegate.swift */,
-				0F80AF1028072FFB00552161 /* ViewController.swift */,
+				0F80AF222807359B00552161 /* MovieSearchList */,
 				0F80AF1528072FFC00552161 /* Assets.xcassets */,
 				0F80AF1728072FFC00552161 /* LaunchScreen.storyboard */,
 				0F80AF1A28072FFC00552161 /* Info.plist */,
 			);
 			path = MovieSearchApp;
+			sourceTree = "<group>";
+		};
+		0F80AF222807359B00552161 /* MovieSearchList */ = {
+			isa = PBXGroup;
+			children = (
+				0F80AF23280735A500552161 /* Model */,
+				0F80AF24280735AC00552161 /* View */,
+				0F80AF25280735B400552161 /* ViewModel */,
+				0F80AF26280735B900552161 /* Controller */,
+				0F80AF202807359500552161 /* MovieSearchListViewController.swift */,
+			);
+			path = MovieSearchList;
+			sourceTree = "<group>";
+		};
+		0F80AF23280735A500552161 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F80AF24280735AC00552161 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0F80AF292807411B00552161 /* MovieSearchTopMenuView.swift */,
+				0F80AF2B280741B100552161 /* FavoriteCustomButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F80AF25280735B400552161 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F80AF26280735B900552161 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		7458D5961631C38FF4C13CA5 /* Frameworks */ = {
@@ -203,8 +248,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F80AF1128072FFB00552161 /* ViewController.swift in Sources */,
+				0F80AF2C280741B100552161 /* FavoriteCustomButton.swift in Sources */,
+				0F80AF2A2807411B00552161 /* MovieSearchTopMenuView.swift in Sources */,
 				0F80AF0D28072FFB00552161 /* AppDelegate.swift in Sources */,
+				0F80AF212807359500552161 /* MovieSearchListViewController.swift in Sources */,
 				0F80AF0F28072FFB00552161 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -350,7 +397,6 @@
 				INFOPLIST_FILE = MovieSearchApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -381,7 +427,6 @@
 				INFOPLIST_FILE = MovieSearchApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
