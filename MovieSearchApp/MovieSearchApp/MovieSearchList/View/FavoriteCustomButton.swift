@@ -31,7 +31,7 @@ class FavoriteCustomButton : UIButton  {
   //MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
-    configureUI()
+    layout()
   }
   
   required init?(coder: NSCoder) {
@@ -39,7 +39,7 @@ class FavoriteCustomButton : UIButton  {
   }
   
   //MARK: - Functions
-  private func configureUI() {
+  private func layout() {
     self.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.2).cgColor
     self.layer.borderWidth = 1
     self.layer.cornerRadius = 5

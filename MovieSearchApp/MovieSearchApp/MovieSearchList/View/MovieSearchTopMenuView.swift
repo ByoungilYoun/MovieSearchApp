@@ -28,7 +28,7 @@ class MovieSearchTopMenuView : UIView  {
   //MARK: - Init
   override init(frame: CGRect) {
     super.init(frame: frame)
-    configureUI()
+    layout()
   }
   
   required init?(coder: NSCoder) {
@@ -37,7 +37,7 @@ class MovieSearchTopMenuView : UIView  {
   
   
   //MARK: - Functions
-  private func configureUI() {
+  private func layout() {
     [titleLabel, favoriteButton].forEach {
       addSubview($0)
     }

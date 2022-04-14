@@ -65,7 +65,7 @@ class MovieSearchListViewController : UIViewController {
     movieListTableView.delegate = self
     movieListTableView.dataSource = self
     movieListTableView.tableFooterView = UIView()
-    movieListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    movieListTableView.register(MovieListTableViewCell.self, forCellReuseIdentifier: MovieListTableViewCell.identifier)
   }
 
   func bind() {
@@ -73,6 +73,10 @@ class MovieSearchListViewController : UIViewController {
       print("즐겨찾기 이동")
     }.disposed(by: self.disposeBag)
   }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+      self.view.endEditing(true)
+    }
 }
 
   //MARK: - UITableViewDataSource
@@ -82,8 +86,10 @@ extension MovieSearchListViewController : UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-    cell.backgroundColor = .white
+    guard let cell = tableView.dequeueReusableCell(withIdentifier: MovieListTableViewCell.identifier, for: indexPath) as? MovieListTableViewCell else {
+      return UITableViewCell()
+    }
+    cell.selectionStyle = .none
     return cell
   }
 }
@@ -92,6 +98,7 @@ extension MovieSearchListViewController : UITableViewDataSource {
 extension MovieSearchListViewController : UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print("\(indexPath.row)")
+    self.view.endEditing(true)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
