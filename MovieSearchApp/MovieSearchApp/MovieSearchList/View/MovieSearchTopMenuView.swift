@@ -24,11 +24,6 @@ class MovieSearchTopMenuView : UIView  {
   
   let favoriteButton = FavoriteCustomButton()
   
-  private let underLineView : UIView = {
-    let view = UIView()
-    view.backgroundColor = .lightGray.withAlphaComponent(0.2)
-    return view
-  }()
   
   //MARK: - Init
   override init(frame: CGRect) {
@@ -43,7 +38,7 @@ class MovieSearchTopMenuView : UIView  {
   
   //MARK: - Functions
   private func configureUI() {
-    [titleLabel, favoriteButton, underLineView].forEach {
+    [titleLabel, favoriteButton].forEach {
       addSubview($0)
     }
     
@@ -56,12 +51,6 @@ class MovieSearchTopMenuView : UIView  {
       $0.centerY.equalTo(titleLabel)
       $0.trailing.equalToSuperview().offset(-15)
       $0.height.equalTo(30)
-    }
-    
-    underLineView.snp.makeConstraints {
-      $0.leading.trailing.equalToSuperview()
-      $0.bottom.equalToSuperview()
-      $0.height.equalTo(1)
     }
   }
 }

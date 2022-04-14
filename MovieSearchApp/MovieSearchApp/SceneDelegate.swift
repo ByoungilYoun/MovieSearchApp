@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     self.window = UIWindow(windowScene: windowScene)
     self.window?.rootViewController = rootNaviController
-    self.window?.backgroundColor = .systemBackground
+    self.window?.overrideUserInterfaceStyle = .light
     self.window?.makeKeyAndVisible()
     
   }

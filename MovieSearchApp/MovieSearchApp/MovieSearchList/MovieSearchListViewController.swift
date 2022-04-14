@@ -14,7 +14,8 @@ class MovieSearchListViewController : UIViewController {
   
   //MARK: - Properties
   private let topMenuView = MovieSearchTopMenuView()
-  private let searchController = UISearchController()
+  let searchBar = SearchBar()
+  let movieListTableView = UITableView()
   
   private let disposeBag = DisposeBag()
   
@@ -22,7 +23,7 @@ class MovieSearchListViewController : UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     bind()
-    configureUI()
+    layout()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -32,10 +33,12 @@ class MovieSearchListViewController : UIViewController {
   
   //MARK: - Functions
   
-  private func configureUI() {
+  private func layout() {
     view.backgroundColor = .white
     
-    [topMenuView].forEach {
+    attributeTableView()
+    
+    [topMenuView, searchBar, movieListTableView].forEach {
       view.addSubview($0)
     }
     
@@ -44,6 +47,25 @@ class MovieSearchListViewController : UIViewController {
       $0.leading.trailing.equalToSuperview()
       $0.height.equalTo(50)
     }
+    
+    searchBar.snp.makeConstraints {
+      $0.top.equalTo(topMenuView.snp.bottom)
+      $0.leading.trailing.equalToSuperview()
+    }
+    
+    movieListTableView.snp.makeConstraints {
+      $0.top.equalTo(searchBar.snp.bottom)
+      $0.leading.trailing.equalToSuperview()
+      $0.bottom.equalTo(view.safeAreaLayoutGuide)
+    }
+  }
+  
+  private func attributeTableView() {
+    movieListTableView.backgroundColor = .white
+    movieListTableView.delegate = self
+    movieListTableView.dataSource = self
+    movieListTableView.tableFooterView = UIView()
+    movieListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
   }
 
   func bind() {
@@ -51,9 +73,32 @@ class MovieSearchListViewController : UIViewController {
       print("즐겨찾기 이동")
     }.disposed(by: self.disposeBag)
   }
- 
+}
+
+  //MARK: - UITableViewDataSource
+extension MovieSearchListViewController : UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 30
+  }
   
-  //MARK: - @objc func
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+    cell.backgroundColor = .white
+    return cell
+  }
+}
+
+  //MARK: - UITableViewDelegate
+extension MovieSearchListViewController : UITableViewDelegate {
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    print("\(indexPath.row)")
+  }
   
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return UITableView.automaticDimension
+  }
   
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 300
+  }
 }
