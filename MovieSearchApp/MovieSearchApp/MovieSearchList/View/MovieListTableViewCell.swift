@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Kingfisher
 
 class MovieListTableViewCell : UITableViewCell {
   
@@ -69,7 +70,6 @@ class MovieListTableViewCell : UITableViewCell {
   //MARK: - Init
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
-    bind()
     layout()
   }
   
@@ -99,7 +99,7 @@ class MovieListTableViewCell : UITableViewCell {
       $0.top.equalTo(contentView.snp.top).offset(10)
       $0.leading.equalTo(contentView.snp.leading).offset(10)
       $0.width.equalTo(55)
-      $0.bottom.equalTo(stackView.snp.bottom)
+      $0.height.equalTo(80)
     }
     
     stackView.snp.makeConstraints {
@@ -117,10 +117,14 @@ class MovieListTableViewCell : UITableViewCell {
     }
   }
   
-  func bind() {
-    starButton.rx.tap.subscribe { _ in
-      print("스타버튼 클릭됨")
-    }.disposed(by: self.disposeBag)
+  func configureCell(movieData : Movie) {
+    let url = URL(string: movieData.image ?? "")
+    movieImageView.kf.setImage(with: url)
+    
+    movieTitleLabel.text = movieData.title?.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+    directorLabel.text = "감독 : \(movieData.director ?? "")".replacingOccurrences(of: "|", with: "")
+    actorLabel.text = "출연 : \(movieData.actor ?? "")".replacingOccurrences(of: "|", with: ",")
+    ratingLabel.text = "평점 : \(movieData.userRating ?? "")"
   }
 }
 

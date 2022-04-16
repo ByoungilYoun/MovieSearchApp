@@ -11,5 +11,7 @@ target 'MovieSearchApp' do
 	pod 'SnapKit', '~> 5.6.0'
 	pod 'Alamofire', '~> 5.5'
 	pod 'Kingfisher', '~> 7.0'
+	pod 'ObjectMapper', '~> 4.2.0'
+	pod 'Moya', '~> 14.0.0'
 
 end
