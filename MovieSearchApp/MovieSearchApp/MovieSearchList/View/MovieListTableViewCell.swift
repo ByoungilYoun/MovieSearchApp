@@ -26,7 +26,6 @@ class MovieListTableViewCell : UITableViewCell {
   
   let movieTitleLabel : UILabel = {
     let label = UILabel()
-    label.text = "국가대표 2"
     label.textColor = .black
     label.lineBreakMode = .byTruncatingTail
     label.font = UIFont.boldSystemFont(ofSize: 15)
@@ -35,7 +34,6 @@ class MovieListTableViewCell : UITableViewCell {
   
   let directorLabel : UILabel = {
     let label = UILabel()
-    label.text = "감독 : 김동현"
     label.textColor = .black
     label.lineBreakMode = .byTruncatingTail
     label.font = UIFont.systemFont(ofSize: 13)
@@ -44,7 +42,6 @@ class MovieListTableViewCell : UITableViewCell {
   
   let actorLabel : UILabel = {
     let label = UILabel()
-    label.text = "출연 : 수색, 오달수, 오연서"
     label.textColor = .black
     label.lineBreakMode = .byTruncatingTail
     label.font = UIFont.systemFont(ofSize: 13)
@@ -53,7 +50,6 @@ class MovieListTableViewCell : UITableViewCell {
   
   let ratingLabel : UILabel = {
     let label = UILabel()
-    label.text = "평점 : 6.5"
     label.textColor = .black
     label.lineBreakMode = .byTruncatingTail
     label.font = UIFont.systemFont(ofSize: 13)

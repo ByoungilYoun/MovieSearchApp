@@ -115,7 +115,9 @@ extension MovieSearchListViewController : UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension MovieSearchListViewController : UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    print("\(indexPath.row)")
+    guard let selectedMovie = viewModel.searchMovieResponseData.value?.items?[indexPath.row] else { return }
+    let viewController = MovieDetailListViewController(detailMovie: selectedMovie)
+    self.navigationController?.pushViewController(viewController, animated: true)
     self.view.endEditing(true)
   }
   
