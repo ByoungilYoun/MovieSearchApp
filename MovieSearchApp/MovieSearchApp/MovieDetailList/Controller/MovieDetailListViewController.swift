@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import WebKit
 
 class MovieDetailListViewController : UIViewController {
   
   //MARK: - Properties
   let detailMovie : Movie?
   let movieDetailView = MovieDetailView()
+  let movieDetailWebView = MovieDetailWebView()
   
   //MARK: - Init
   init(detailMovie : Movie) {
@@ -29,6 +31,7 @@ class MovieDetailListViewController : UIViewController {
     setNavigation()
     layout()
     setDetailMovieData()
+    setMovieDetailWebView()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -47,20 +50,31 @@ class MovieDetailListViewController : UIViewController {
   private func layout() {
     view.backgroundColor = .white
     
-    [movieDetailView].forEach {
+    [movieDetailView, movieDetailWebView].forEach {
       self.view.addSubview($0)
     }
     
-    movieDetailView.snp.makeConstraints {
+    self.movieDetailView.snp.makeConstraints {
       $0.top.equalTo(view.safeAreaLayoutGuide)
       $0.leading.trailing.equalToSuperview()
       $0.height.equalTo(100)
+    }
+    
+    self.movieDetailWebView.snp.makeConstraints {
+      $0.top.equalTo(movieDetailView.snp.bottom)
+      $0.leading.trailing.equalToSuperview()
+      $0.bottom.equalTo(view.safeAreaLayoutGuide)
     }
   }
   
   private func setDetailMovieData() {
     guard let movie = detailMovie else { return }
-    movieDetailView.configureData(movie: movie)
+    self.movieDetailView.configureData(movie: movie)
+  }
+  
+  private func setMovieDetailWebView() {
+    guard let movieLink = detailMovie?.link else { return }
+    self.movieDetailWebView.laodWebUrl(url: movieLink)
   }
   
   //MARK: - @objc func
