@@ -7,13 +7,17 @@
 
 import UIKit
 import WebKit
+import RxSwift
+import RxCocoa
 
 class MovieDetailListViewController : UIViewController {
   
   //MARK: - Properties
-  let detailMovie : Movie?
+  let detailMovie : Movie
   let movieDetailView = MovieDetailView()
   let movieDetailWebView = MovieDetailWebView()
+  let disposeBag = DisposeBag()
+  let favoriteViewModel = FavoriteMovieViewModel()
   
   //MARK: - Init
   init(detailMovie : Movie) {
@@ -28,6 +32,7 @@ class MovieDetailListViewController : UIViewController {
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    bind()
     setNavigation()
     layout()
     setDetailMovieData()
@@ -42,7 +47,7 @@ class MovieDetailListViewController : UIViewController {
   
   //MARK: - Functions
   private func setNavigation() {
-    self.navigationItem.title = detailMovie?.title?.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
+    self.navigationItem.title = detailMovie.title?.replacingOccurrences(of: "<b>", with: "").replacingOccurrences(of: "</b>", with: "")
     
     self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(goBack))
     self.navigationItem.leftBarButtonItem?.tintColor = .black
@@ -69,20 +74,37 @@ class MovieDetailListViewController : UIViewController {
   }
   
   private func setDetailMovieData() {
-    guard let movie = detailMovie else { return }
-    self.movieDetailView.configureData(movie: movie)
+    self.movieDetailView.configureData(movie: detailMovie)
   }
   
   private func setMovieDetailWebView() {
-    guard let movieLink = detailMovie?.link else { return }
+    guard let movieLink = detailMovie.link else { return }
     self.movieDetailWebView.laodWebUrl(url: movieLink)
   }
   
   private func setStarButtonIsLiked() {
-    guard let isLiked = detailMovie?.isLiked else { return }
-    self.movieDetailView.detailStarButton.imageView?.tintColor = isLiked ? UIColor.yellow : UIColor.lightGray
+    self.movieDetailView.detailStarButton.imageView?.tintColor = detailMovie.isLiked ? UIColor.yellow : UIColor.lightGray
   }
   
+  func bind() {
+    self.movieDetailView.detailStarButton.rx.tap.bind { [weak self] _ in
+      guard let self = self else { return }
+      
+      var movie = self.detailMovie
+      
+      movie.isLiked.toggle()
+      
+      if movie.isLiked {
+        self.movieDetailView.detailStarButton.imageView?.tintColor = .yellow
+        self.favoriteViewModel.addMovie(movie)
+      } else {
+        self.movieDetailView.detailStarButton.imageView?.tintColor = .lightGray
+        self.favoriteViewModel.removeMovie(movie)
+      }
+      
+    }.disposed(by: self.disposeBag)
+  }
+
   //MARK: - @objc func
   @objc private func goBack() {
     self.navigationController?.popViewController(animated: true)
