@@ -32,6 +32,7 @@ class MovieDetailListViewController : UIViewController {
     layout()
     setDetailMovieData()
     setMovieDetailWebView()
+    setStarButtonIsLiked()
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +76,11 @@ class MovieDetailListViewController : UIViewController {
   private func setMovieDetailWebView() {
     guard let movieLink = detailMovie?.link else { return }
     self.movieDetailWebView.laodWebUrl(url: movieLink)
+  }
+  
+  private func setStarButtonIsLiked() {
+    guard let isLiked = detailMovie?.isLiked else { return }
+    self.movieDetailView.detailStarButton.imageView?.tintColor = isLiked ? UIColor.yellow : UIColor.lightGray
   }
   
   //MARK: - @objc func

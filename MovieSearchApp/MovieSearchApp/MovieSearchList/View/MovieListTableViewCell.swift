@@ -15,6 +15,7 @@ class MovieListTableViewCell : UITableViewCell {
   //MARK: - Properties
   static let identifier = "MovieListTableViewCell"
   private let disposeBag = DisposeBag()
+  let favoriteViewModel = FavoriteMovieViewModel()
   
   let movieImageView : UIImageView = {
     let view = UIImageView()
@@ -121,6 +122,25 @@ class MovieListTableViewCell : UITableViewCell {
     directorLabel.text = "감독 : \(movieData.director ?? "")".replacingOccurrences(of: "|", with: "")
     actorLabel.text = "출연 : \(movieData.actor ?? "")".replacingOccurrences(of: "|", with: ",")
     ratingLabel.text = "평점 : \(movieData.userRating ?? "")"
+    starButton.imageView?.tintColor = movieData.isLiked ? UIColor.yellow : UIColor.lightGray
+  }
+  
+  func bind(movieData : Movie) {
+    var movie = movieData
+    
+    starButton.rx.tap.subscribe { [weak self] _ in
+      guard let self = self else { return }
+      
+      movie.isLiked.toggle()
+    
+      if movie.isLiked {
+        self.starButton.imageView?.tintColor = .yellow
+        self.favoriteViewModel.addMovie(movie)
+      } else {
+        self.starButton.imageView?.tintColor = .lightGray
+        self.favoriteViewModel.removeMovie(movie)
+      }
+    }.disposed(by: self.disposeBag)
   }
 }
 

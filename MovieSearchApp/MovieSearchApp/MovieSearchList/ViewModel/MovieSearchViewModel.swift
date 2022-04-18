@@ -14,7 +14,6 @@ class MovieSearchViewModel {
   
   //MARK: - Properties
   let searchMovieResponseData = BehaviorRelay<MovieSearchResponseDto?>(value: nil)
-  let searchMovieResponseData2 = BehaviorRelay<Movie?>(value: nil)
   
   private let disposeBag = DisposeBag()
   

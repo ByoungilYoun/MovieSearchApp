@@ -75,7 +75,8 @@ class MovieSearchListViewController : UIViewController {
   
   func bind() {
     topMenuView.favoriteButton.rx.tap.subscribe { _ in
-      print("즐겨찾기 이동")
+      let viewController = FavoriteMovieListViewController()
+      self.navigationController?.pushViewController(viewController, animated: true)
     }.disposed(by: self.disposeBag)
     
     viewModel.searchMovieResponseData.bind { [weak self] data in
@@ -108,6 +109,7 @@ extension MovieSearchListViewController : UITableViewDataSource {
     
     guard let movie = viewModel.getEachMovieData(indexPath: indexPath.row) else { return UITableViewCell() }
     cell.configureCell(movieData: movie)
+    cell.bind(movieData: movie)
     return cell
   }
 }

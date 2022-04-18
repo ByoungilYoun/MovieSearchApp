@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F0D6F55280C5255007E8537 /* MovieDetailWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D6F54280C5255007E8537 /* MovieDetailWebView.swift */; };
+		0F0D6F5C280C64C2007E8537 /* FavoriteMovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D6F5B280C64C2007E8537 /* FavoriteMovieListViewController.swift */; };
+		0F0D6F5E280C79AC007E8537 /* FavoriteMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0D6F5D280C79AC007E8537 /* FavoriteMovieViewModel.swift */; };
 		0F80AF0D28072FFB00552161 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF0C28072FFB00552161 /* AppDelegate.swift */; };
 		0F80AF0F28072FFB00552161 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F80AF0E28072FFB00552161 /* SceneDelegate.swift */; };
 		0F80AF1628072FFC00552161 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0F80AF1528072FFC00552161 /* Assets.xcassets */; };
@@ -30,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		0F0D6F54280C5255007E8537 /* MovieDetailWebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailWebView.swift; sourceTree = "<group>"; };
+		0F0D6F5B280C64C2007E8537 /* FavoriteMovieListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieListViewController.swift; sourceTree = "<group>"; };
+		0F0D6F5D280C79AC007E8537 /* FavoriteMovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieViewModel.swift; sourceTree = "<group>"; };
 		0F80AF0928072FFB00552161 /* MovieSearchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F80AF0C28072FFB00552161 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F80AF0E28072FFB00552161 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +79,47 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		0F0D6F56280C646E007E8537 /* FavoriteMovieList */ = {
+			isa = PBXGroup;
+			children = (
+				0F0D6F5A280C64AE007E8537 /* Model */,
+				0F0D6F59280C64AA007E8537 /* View */,
+				0F0D6F58280C649F007E8537 /* ViewModel */,
+				0F0D6F57280C649C007E8537 /* Controller */,
+			);
+			path = FavoriteMovieList;
+			sourceTree = "<group>";
+		};
+		0F0D6F57280C649C007E8537 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0F0D6F5B280C64C2007E8537 /* FavoriteMovieListViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0F0D6F58280C649F007E8537 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0F0D6F5D280C79AC007E8537 /* FavoriteMovieViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0F0D6F59280C64AA007E8537 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0F0D6F5A280C64AE007E8537 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0F80AF0028072FFB00552161 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +146,7 @@
 				0FEDAB7E280B395C00371B39 /* App.swift */,
 				0FEDAB7C280B38F400371B39 /* APITarget.swift */,
 				0F80AF222807359B00552161 /* MovieSearchList */,
+				0F0D6F56280C646E007E8537 /* FavoriteMovieList */,
 				0FEDAB8A280B573F00371B39 /* MovieDetailList */,
 				0FEDAB85280B3C9C00371B39 /* Service */,
 				0F80AF1528072FFC00552161 /* Assets.xcassets */,
@@ -332,6 +378,8 @@
 				0FEDAB90280B577C00371B39 /* MovieDetailListViewController.swift in Sources */,
 				0FEDAB7F280B395C00371B39 /* App.swift in Sources */,
 				0F80AF2C280741B100552161 /* FavoriteCustomButton.swift in Sources */,
+				0F0D6F5E280C79AC007E8537 /* FavoriteMovieViewModel.swift in Sources */,
+				0F0D6F5C280C64C2007E8537 /* FavoriteMovieListViewController.swift in Sources */,
 				0FEDAB89280B467B00371B39 /* MovieListTableView.swift in Sources */,
 				0FEDAB82280B3AD300371B39 /* MovieSearchResponseDto.swift in Sources */,
 				0F80AF2A2807411B00552161 /* MovieSearchTopMenuView.swift in Sources */,

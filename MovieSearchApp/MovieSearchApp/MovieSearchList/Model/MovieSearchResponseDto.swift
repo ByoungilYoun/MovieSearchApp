@@ -19,7 +19,7 @@ struct MovieSearchResponseDto : Mappable {
   }
 }
 
-struct Movie : Mappable {
+struct Movie : Mappable, Codable {
   var title : String?
   var link : String?
   var subtitle : String?
@@ -28,6 +28,7 @@ struct Movie : Mappable {
   var actor : String?
   var userRating : String? // Int x
   var image : String?
+  var isLiked : Bool = false
   
   init?(map: Map) {
   
