@@ -8,6 +8,11 @@
 import UIKit
 import Kingfisher
 
+/*
+ 영화 디테일 상단 커스텀 뷰
+ */
+
+
 class MovieDetailView : UIView {
   
   //MARK: - Properties

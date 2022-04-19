@@ -8,6 +8,11 @@
 import UIKit
 import WebKit
 
+/*
+ 영화 디테일 커스텀 웹뷰
+ */
+
+
 class MovieDetailWebView : UIView {
   
   //MARK: - Properties

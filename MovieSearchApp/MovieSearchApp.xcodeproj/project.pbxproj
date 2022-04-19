@@ -82,8 +82,6 @@
 		0F0D6F56280C646E007E8537 /* FavoriteMovieList */ = {
 			isa = PBXGroup;
 			children = (
-				0F0D6F5A280C64AE007E8537 /* Model */,
-				0F0D6F59280C64AA007E8537 /* View */,
 				0F0D6F58280C649F007E8537 /* ViewModel */,
 				0F0D6F57280C649C007E8537 /* Controller */,
 			);
@@ -104,20 +102,6 @@
 				0F0D6F5D280C79AC007E8537 /* FavoriteMovieViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		0F0D6F59280C64AA007E8537 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		0F0D6F5A280C64AE007E8537 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		0F80AF0028072FFB00552161 = {
@@ -214,9 +198,7 @@
 		0FEDAB8A280B573F00371B39 /* MovieDetailList */ = {
 			isa = PBXGroup;
 			children = (
-				0FEDAB8E280B575700371B39 /* Model */,
 				0FEDAB8D280B575500371B39 /* View */,
-				0FEDAB8C280B575100371B39 /* ViewModel */,
 				0FEDAB8B280B574A00371B39 /* Controller */,
 			);
 			path = MovieDetailList;
@@ -230,13 +212,6 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		0FEDAB8C280B575100371B39 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		0FEDAB8D280B575500371B39 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,13 +219,6 @@
 				0F0D6F54280C5255007E8537 /* MovieDetailWebView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		0FEDAB8E280B575700371B39 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		7458D5961631C38FF4C13CA5 /* Frameworks */ = {

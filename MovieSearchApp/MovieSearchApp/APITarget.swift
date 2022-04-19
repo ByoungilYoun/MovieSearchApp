@@ -13,6 +13,7 @@ enum API {
   }
 }
 
+  //MARK: - 영화 검색
 extension API.SearchMovie : TargetType, AccessTokenAuthorizable {
   var baseURL: URL {
     App.shared.apiURL

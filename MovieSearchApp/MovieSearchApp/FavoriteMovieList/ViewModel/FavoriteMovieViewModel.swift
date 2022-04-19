@@ -36,7 +36,7 @@ struct FavoriteMovieViewModel {
   func removeMovie(_ value : Movie) {
     let currentMovies : [Movie] = getMovies()
     let newValue = currentMovies.filter {
-      $0.link != value.link // 지우고자 한 값을 제외한 총 movie 값, link 로?
+      $0.actor != value.actor // 지우고자 한 값을 제외한 총 movie 값, actor 로?
     }
 
     // 지우고 새로 저장
